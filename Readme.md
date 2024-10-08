@@ -1,6 +1,6 @@
 # AI-Based Real Estate Web Scraper
 
-Welcome to our AI-based web scraper project, designed to efficiently extract data from real estate websites.
+Welcome to our AI-based web scraper project, designed to efficiently extract data using advanced machine learning models to gather and process real estate listings, providing users with structured and valuable information.
 
 ## Installation Guide
 
@@ -80,7 +80,7 @@ streamlit run main.py
 1. Download Ollama from [here](https://ollama.com/download).
 2. Select your platform (MacOS, Linux, Windows) and complete the installation.
 
-3. Open CMD and type:
+3. Open Command Prompt and type:
    ```bash
    ollama
    ```
@@ -99,6 +99,12 @@ streamlit run main.py
 ### Setup Complete
 
 Congratulations! You have successfully set up the AI-Based Real Estate Web Scraper.
+
+## Features
+
+1. Automated Data Extraction: Scrapes real estate listings from multiple websites.
+2. AI Integration: Uses machine learning models to enhance data extraction accuracy.
+3. Customizable: Easily update the model version and scraping parameters.
 
 ## Usage
 
