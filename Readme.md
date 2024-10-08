@@ -8,9 +8,22 @@ Ensure you have Python 3.12.5 installed for compatibility with all dependencies 
 
 Download Python 3.12.5 from the official [Python website](https://www.python.org/downloads/release/python-3125/).
 
+## Recommended IDE
+
+For the best development experience, we recommend using Visual Studio Code (VSCode).
+
+Download VSCode from the official [Visual Studio Code website](https://code.visualstudio.com/).
+
 ## Installation Guide
 
-### Step 1: Virtual Environment Setup
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/tomycabre/AI-Web-Scrapper.git
+cd AI-Web-Scrapper
+```
+
+### Step 2: Virtual Environment Setup
 
 #### Windows
 
@@ -24,7 +37,7 @@ py -m venv ai
 python3 -m venv ai
 ```
 
-### Step 2: Activate the Virtual Environment
+### Step 3: Activate the Virtual Environment
 
 #### Windows
 
@@ -38,7 +51,7 @@ python3 -m venv ai
 source ai/bin/activate
 ```
 
-### Step 3: Install Required Packages
+### Step 4: Install Required Packages
 
 #### Windows
 
@@ -52,7 +65,7 @@ py -m pip install -r requirements.txt
 pip install -r requirements.txt
 ```
 
-### Step 4: Run the Streamlit Application
+### Step 5: Run the Streamlit Application
 
 #### Windows
 
@@ -66,7 +79,7 @@ py -m streamlit run main.py
 streamlit run main.py
 ```
 
-### Step 5: Chromedriver Setup
+### Step 6: Chromedriver Setup
 
 #### Windows
 
@@ -81,7 +94,7 @@ streamlit run main.py
 3. Select "Stable" and download the appropriate zip file (`mac-arm64` or `mac-x64`).
 4. Extract the zip file and copy `chromedriver` to your AI-WEB-SCRAPPER folder.
 
-### Step 6: Install Ollama
+### Step 7: Install Ollama
 
 1. Download Ollama from [here](https://ollama.com/download).
 2. Select your platform (MacOS, Linux, Windows) and complete the installation.
