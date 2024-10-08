@@ -1,18 +1,20 @@
 # AI Web Scrapper
 
-This project is an AI-based web scraper that extracts data from websites.
+This project is an AI-based web scraper that extracts data from websites, optimized for real estate.
 
 ## Installation Steps
 
 ### Step 1
 
-Set up the virtual environment on Windows, run:
+Set up the virtual environment:
+
+On Windows, run:
 
 ```bash
 py -m venv ai
 ```
 
-Set up the virtual environment on MacOS, run:
+On MacOS, run:
 
 ```bash
 python3 -m venv ai
@@ -20,13 +22,15 @@ python3 -m venv ai
 
 ### Step 2
 
-Activate the virtual environment on Windows, run:
+Activate the virtual environment:
+
+On Windows, run:
 
 ```bash
 .\ai\Scripts\activate.bat
 ```
 
-Activate the virtual environment on MacOS, run:
+On MacOS, run:
 
 ```bash
 source ai/bin/activate
@@ -34,13 +38,15 @@ source ai/bin/activate
 
 ### Step 3
 
-Install the required packages on Windows, run:
+Install the required packages:
+
+On Windows, run:
 
 ```bash
 py -m pip install -r requirements.txt
 ```
 
-Install the required packages on MacOS, run:
+On MacOS, run:
 
 ```bash
 pip install -r requirements.txt
@@ -48,13 +54,15 @@ pip install -r requirements.txt
 
 ### Step 4
 
-Run the streamlit application on Windows:
+Run the streamlit application
+
+On Windows:
 
 ```bash
 py -m streamlit run main.py
 ```
 
-Run the streamlit application on MacOS:
+On MacOS:
 
 ```bash
 streamlit run main.py
