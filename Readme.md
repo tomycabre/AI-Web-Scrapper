@@ -1,5 +1,3 @@
-# AI Web Scrapper
-
 # AI-Based Real Estate Web Scraper
 
 Welcome to our AI-based web scraper project, designed to efficiently extract data from real estate websites.
@@ -67,7 +65,7 @@ streamlit run main.py
 #### Windows
 
 1. Download Chromedriver from [here](https://googlechromelabs.github.io/chrome-for-testing/#stable).
-2. Select "Stable" and download the "win64" zip file.
+2. Select "Stable" and download the (`win64` or `win32`) zip file.
 3. Extract the zip file and copy `chromedriver.exe` to your AI-WEB-SCRAPPER folder.
 
 #### MacOS
@@ -81,22 +79,26 @@ streamlit run main.py
 
 1. Download Ollama from [here](https://ollama.com/download).
 2. Select your platform (MacOS, Linux, Windows) and complete the installation.
+
 3. Open CMD and type:
    ```bash
    ollama
    ```
 4. Download your desired Ollama version (e.g., llama3):
+
    ```bash
    ollama run llama3
    ```
+
 5. Update the model version in `parse.py` (line 17):
+
    ```python
    model = OllamaLLM(model="your model version here")
    ```
 
 ### Setup Complete
 
-Congratulations! You have successfully set up the AI-WEB-SCRAPPER.
+Congratulations! You have successfully set up the AI-Based Real Estate Web Scraper.
 
 ## Usage
 
