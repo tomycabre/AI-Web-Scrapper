@@ -2,6 +2,12 @@
 
 Welcome to our AI-based web scraper project, designed to efficiently extract data using advanced machine learning models to gather and process real estate listings, providing users with structured and valuable information.
 
+## Prerequisites
+
+Ensure you have Python 3.12.5 installed for compatibility with all dependencies and features. Note that Python 3.13 does not work in this project as of October 2024.
+
+Download Python 3.12.5 from the official [Python website](https://www.python.org/downloads/release/python-3125/).
+
 ## Installation Guide
 
 ### Step 1: Virtual Environment Setup
