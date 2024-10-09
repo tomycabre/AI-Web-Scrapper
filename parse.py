@@ -8,10 +8,11 @@ template = (
     "2. **No Extra Content:** Do not include any additional text, comments, or explanations in your response. "
     "3. **Empty Response:** If no information matches the description, return an empty string ('')."
     "4. **Direct Data Only:** Your output should contain only the data that is explicitly requested, with no other text."
-    "5. **Stay In Topic:** It is strictly required for you to follow the instructions without going off-topic." 
-    "6. **Table Information:** You will have to create one table with all the information and after a text in the CSV format (location,squaremeterstotal,squaremeterscubiertos,ambientes,baños,price,ventaoralquiler)"
-    "7. **Do not include:** First, do not include information in the CSV that is missing in the table, I want the same text for both. Second, in Venta/Alquiler, only type Venta, alquiler or both, if you do not have the information leave it blank. Third, Do not add a horizontal line or minus simbol if no information is provided, leave it blank. Forth, DO NOT include "" in the CSV format. Fifth, DO NOT include plus or minus simbols in any part of the CSV file"
-    "8. **Include:** First, include a table and the table information in a CSV format. Second, include location,squaremeterstotal,squaremeterscubiertos,ambientes,baños,price,ventaoralquiler in the CSV format."
+    "5. **Table Information:** You will have to create one table with all the information and after a text in the CSV format (location,squaremeterstotal,squaremeterscubiertos,ambientes,baños,price,expensas,ventaoralquiler)"
+    "6. **price:** For price section of the table and CSV use number ONLY, DO NOT use symbols."
+    "7. **expensas:** For (expensas) section of the table and CSV use numbers ONLY, DO NOT use symbols. If there are no (expensas) you will have to add expensas to the table and CSV even with no information, leave it blank."
+    "8. **Do not include:** First, do not include information in the CSV that is missing in the table, I want the same text for both. Second, in Venta/Alquiler, only type Venta, alquiler or both, if you do not have the information leave it blank. Third, Do not add a horizontal line or minus simbol if no information is provided, leave it blank. Forth, DO NOT include "" in the CSV format. Fifth, DO NOT include plus or minus simbols in any part of the CSV."
+    "9. **Include:** Include location,squaremeterstotal,squaremeterscubiertos,ambientes,baños,price,expensas,ventaoralquiler in the CSV format."
 )
 
 model = OllamaLLM(model="llama3")
