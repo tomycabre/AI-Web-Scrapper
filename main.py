@@ -54,10 +54,6 @@ def scrape_websites():
                 # Store the cleaned content in the dictionary
                 scraped_data[name] = cleaned_content
 
-                # Display the DOM content in an expandable text box
-                with st.expander(f"View Cleaned Content for {name}"):
-                    st.text_area(f"Cleaned Content ({name})", cleaned_content, height=300)
-
                 # Display the time taken to scrape, extract, and clean
                 st.success(f"Scraping, extracting, and cleaning took {scrape_time:.2f} seconds for {name}.")
 
@@ -107,7 +103,6 @@ def parse_content():
         parse_status_placeholder.empty()
         st.success("Parsing completed.")
 
-
 # Display current URLs with text inputs for URL and buttons for removal
 for idx, url_info in enumerate(st.session_state.url_list):
     col1, col2 = st.columns([0.85, 0.15])  # Adjusted column widths for better alignment
@@ -123,10 +118,22 @@ for idx, url_info in enumerate(st.session_state.url_list):
 # Button to add a new URL (always available)
 st.button("Add Link", on_click=add_url)
 
-# Step 2: Scrape the Websites
-st.button("Scrape Websites", on_click=scrape_websites)
+# Scraping Section
+scrape_container = st.container()
+with scrape_container:
+    if st.button("Scrape Websites"):
+        scrape_websites()
+    
+    # Display scraped content
+    if "scraped_data" in st.session_state:
+        for name, content in st.session_state.scraped_data.items():
+            with st.expander(f"View Cleaned Content for {name}"):
+                st.text_area(f"Cleaned Content ({name})", content, height=300)
 
-# Step 3: Ask Questions About the Scraped Data
-if "scraped_data" in st.session_state:
-    st.session_state["parse_description"] = st.text_area("Describe what you want to parse from all the scraped content")
-    st.button("Parse Content", on_click=parse_content)
+# Parsing Section
+parse_container = st.container()
+with parse_container:
+    if "scraped_data" in st.session_state:
+        st.session_state["parse_description"] = st.text_area("Describe what you want to parse from all the scraped content")
+        if st.button("Parse Content"):
+            parse_content()
