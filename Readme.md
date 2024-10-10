@@ -2,17 +2,37 @@
 
 Welcome to our AI-based web scraper project, designed to efficiently extract data using advanced machine learning models to gather and process real estate listings, providing users with structured and valuable information.
 
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Installation Guide](#installation-guide)
+   - [Step 1: Clone the Repository](#step-1-clone-the-repository)
+   - [Step 2: Virtual Environment Setup](#step-2-virtual-environment-setup)
+     - [Windows](#windows)
+     - [MacOS](#macos)
+   - [Step 3: Activate the Virtual Environment](#step-3-activate-the-virtual-environment)
+     - [Windows](#windows-1)
+     - [MacOS](#macos-1)
+   - [Step 4: Install Required Packages](#step-4-install-required-packages)
+     - [Windows](#windows-2)
+     - [MacOS](#macos-2)
+   - [Step 5: Run the Streamlit Application](#step-5-run-the-streamlit-application)
+     - [Windows](#windows-3)
+     - [MacOS](#macos-3)
+   - [Step 6: Chromedriver Setup](#step-6-chromedriver-setup)
+     - [Windows](#windows-4)
+     - [MacOS](#macos-4)
+   - [Step 7: Install Ollama](#step-7-install-ollama)
+3. [Features](#features)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
+
 ## Prerequisites
 
 Ensure you have Python 3.12.5 installed for compatibility with all dependencies and features. Note that Python 3.13 does not work in this project as of October 2024.
 
 Download Python 3.12.5 from the official [Python website](https://www.python.org/downloads/release/python-3125/).
-
-## Recommended IDE
-
-For the best development experience, we recommend using Visual Studio Code (VSCode).
-
-Download VSCode from the official [Visual Studio Code website](https://code.visualstudio.com/).
 
 ## Installation Guide
 
