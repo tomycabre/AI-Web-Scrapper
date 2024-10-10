@@ -8,6 +8,45 @@ from scrape import (
 from parse import parse_with_ollama
 import time
 
+# Custom CSS to make tables responsive
+st.markdown("""
+<style>
+    .stExpander {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .content-wrapper {
+        overflow-x: auto;
+        max-width: 100%;
+        white-space: nowrap;
+    }
+    .table-wrapper {
+        display: inline-block;
+        vertical-align: top;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+    table {
+        border-collapse: collapse;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        word-wrap: break-word;
+        max-width: 200px;
+    }
+    .csv-data {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        max-width: 100%;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Streamlit UI
 st.title("AI Web Scraper")
 
@@ -54,10 +93,6 @@ def scrape_websites():
                 # Store the cleaned content in the dictionary
                 scraped_data[name] = cleaned_content
 
-                # Display the DOM content in an expandable text box
-                with st.expander(f"View Cleaned Content for {name}"):
-                    st.text_area(f"Cleaned Content ({name})", cleaned_content, height=300)
-
                 # Display the time taken to scrape, extract, and clean
                 st.success(f"Scraping, extracting, and cleaning took {scrape_time:.2f} seconds for {name}.")
 
@@ -93,9 +128,10 @@ def parse_content():
                 # Measure the end time for parsing
                 parse_time = time.time() - parse_start_time
 
-                # Display parsed result for each link name
-                st.write(f"Parsed result for {name}:")
-                st.write(parsed_result)
+                # Store parsed result in session state
+                if 'parsed_results' not in st.session_state:
+                    st.session_state.parsed_results = {}
+                st.session_state.parsed_results[name] = parsed_result
 
                 # Display the time taken to parse the content for each link using `st.success`
                 st.success(f"Parsing took {parse_time:.2f} seconds for {name}.")
@@ -106,7 +142,6 @@ def parse_content():
         # Clear the previous status message
         parse_status_placeholder.empty()
         st.success("Parsing completed.")
-
 
 # Display current URLs with text inputs for URL and buttons for removal
 for idx, url_info in enumerate(st.session_state.url_list):
@@ -123,10 +158,30 @@ for idx, url_info in enumerate(st.session_state.url_list):
 # Button to add a new URL (always available)
 st.button("Add Link", on_click=add_url)
 
-# Step 2: Scrape the Websites
-st.button("Scrape Websites", on_click=scrape_websites)
+# Scraping Section
+scrape_container = st.container()
+with scrape_container:
+    if st.button("Scrape Websites"):
+        scrape_websites()
+    
+    # Display scraped content
+    if "scraped_data" in st.session_state:
+        st.subheader("Scraped Content")
+        for name, content in st.session_state.scraped_data.items():
+            with st.expander(f"View Cleaned Content for {name}"):
+                st.text_area(f"Cleaned Content ({name})", content, height=300)
 
-# Step 3: Ask Questions About the Scraped Data
-if "scraped_data" in st.session_state:
-    st.session_state["parse_description"] = st.text_area("Describe what you want to parse from all the scraped content")
-    st.button("Parse Content", on_click=parse_content)
+# Parsing Section
+parse_container = st.container()
+with parse_container:
+    if "scraped_data" in st.session_state:
+        st.session_state["parse_description"] = st.text_area("Describe what you want to parse from all the scraped content")
+        if st.button("Parse Content"):
+            parse_content()
+        
+        # Display parsed content
+        if 'parsed_results' in st.session_state:
+            st.subheader("Parsed Content")
+            for name, result in st.session_state.parsed_results.items():
+                with st.expander(f"View Parsed Content for {name}"):
+                    st.markdown(result, unsafe_allow_html=True)
